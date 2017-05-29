@@ -1,0 +1,24 @@
+name: MQ135
+version: "1.0"
+skeleton_version: 2017-05-16
+
+modules:
+  - origin: https://github.com/cesanta/mjs
+sources:
+  - src
+  - ${mjs_path}/mjs.c
+filesystem:
+  - fs
+  - ${mjs_path}/mjs/lib/api_*.js
+  - ${mongoose_os_path}/fw/mjs_api/api_*.js
+  - ${mongoose_os_path}/fw/platforms/${arch}/mjs_api/api_*.js
+
+extra_files: []
+ffi_symbols: []
+config_schema: []
+APP_CONF_SCHEMA: src/conf_schema.yaml
+build_vars:
+  MGOS_ENABLE_MQTT: 1
+  MGOS_ENABLE_AWS_SHADOW: 1
+  SSL: mbedTLS
+  MGOS_ENABLE_ONEWIRE: 1
