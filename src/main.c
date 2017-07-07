@@ -37,7 +37,8 @@ enum mgos_app_init_result mgos_app_init(void) {
   struct mjs *mjs = mjs_create();
   mem2 = mgos_get_free_heap_size();
   mjs_set_ffi_resolver(mjs, mgos_dlsym);
-  mjs_err_t err = mjs_exec_file(mjs, "init.js", 1, NULL);
+  mjs_err_t err = mjs_exec_file(mjs, "init.js", NULL);
+  mjs_set_generate_jsc(mjs, 1);
   if (err != MJS_OK) {
     mjs_print_error(mjs, stdout, NULL, 1 /* print_stack_trace */);
   }
