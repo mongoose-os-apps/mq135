@@ -9,7 +9,7 @@ load('api_gpio.js');
 /**
 * Load mq api
 */
-load('api_mq.js');
+load('api_mq135.js');
 
 /**
 * Set envirenement test temperature
